@@ -1,15 +1,17 @@
 import WeatherDetails from "./WeatherDetails";
 
-function WeatherCard() {
+function WeatherCard({ city }) {
   return (
     <section className="weather-card">
 
       <div className="weather-main">
 
         <div>
-          <p className="location-label">CURRENT WEATHER</p>
+          <p className="location-label">
+            CURRENT WEATHER
+          </p>
 
-          <h2>Tehran</h2>
+          <h2>{city || "Search for a city"}</h2>
 
           <p className="weather-description">
             Clear sky
