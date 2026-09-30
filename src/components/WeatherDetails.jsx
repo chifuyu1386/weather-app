@@ -1,4 +1,4 @@
-function WeatherDetails() {
+function WeatherDetails({ weather }) {
   return (
     <div className="weather-details">
 
@@ -7,7 +7,7 @@ function WeatherDetails() {
 
         <div>
           <p>Humidity</p>
-          <strong>42%</strong>
+          <strong>{weather.humidity}%</strong>
         </div>
       </div>
 
@@ -16,7 +16,7 @@ function WeatherDetails() {
 
         <div>
           <p>Wind</p>
-          <strong>12 km/h</strong>
+          <strong>{weather.windSpeed} m/s</strong>
         </div>
       </div>
 
@@ -25,7 +25,7 @@ function WeatherDetails() {
 
         <div>
           <p>Feels like</p>
-          <strong>23°C</strong>
+          <strong>{Math.round(weather.feelsLike)}°C</strong>
         </div>
       </div>
 

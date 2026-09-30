@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useState} from "react";
+import { getWeatherByCity } from "./services/weatherApi";
 
 import SearchBar from "./components/SearchBar";
 import WeatherCard from "./components/WeatherCard";
 
 function App() {
-  const [city, setCity] = useState("");
+  const [weather, setWeather] = useState(null);
 
-  function handleSearch(cityName) {
-    setCity(cityName);
+  async function handleSearch(cityName) {
+    try {
+      const data = await getWeatherByCity(cityName);
+
+      setWeather(data)
+      
+    } catch (err) {
+      console.error(err)
+
+    }
   }
 
   return (
@@ -24,7 +33,7 @@ function App() {
 
         <SearchBar onSearch={handleSearch} />
 
-        <WeatherCard city={city} />
+        <WeatherCard weather={weather} />
 
       </div>
     </main>

@@ -1,6 +1,14 @@
 import WeatherDetails from "./WeatherDetails";
 
-function WeatherCard({ city }) {
+function WeatherCard({ weather }) {
+  if(!weather) {
+    return (
+      <section className="weather-card">
+        <h2>Search for a city</h2>
+      </section>
+    )
+  }
+
   return (
     <section className="weather-card">
 
@@ -11,10 +19,10 @@ function WeatherCard({ city }) {
             CURRENT WEATHER
           </p>
 
-          <h2>{city || "Search for a city"}</h2>
+          <h2>{weather.city}</h2>
 
           <p className="weather-description">
-            Clear sky
+            {weather.description}
           </p>
         </div>
 
@@ -25,10 +33,11 @@ function WeatherCard({ city }) {
       </div>
 
       <div className="temperature">
-        24<span>°C</span>
+        {Math.round(weather.temperature)}
+        <span>°C</span>
       </div>
 
-      <WeatherDetails />
+      <WeatherDetails weather={weather}/>
 
     </section>
   );
