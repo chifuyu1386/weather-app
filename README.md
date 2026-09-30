@@ -1,16 +1,78 @@
-# React + Vite
+# 🌤️ Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern and responsive weather application built with React that allows users to search for a city and view real-time weather information using the OpenWeather API.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+👉 [View Live Demo](https://chifuyu1386.github.io/weather-app/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the Oxlint configuration
+- 🔎 Search weather by city name
+- 🌡️ Display current temperature
+- 🌡️ Display "feels like" temperature
+- 💧 Display humidity
+- 💨 Display wind speed
+- 🌤️ Dynamic weather icons
+- ⏳ Loading state while fetching data
+- ⚠️ Error handling for invalid cities and API errors
+- 📱 Responsive design for desktop and mobile
+- 🎨 Modern dark UI with glassmorphism styling
+- ⚡ Fast development and production build with Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- React
+- JavaScript
+- HTML5
+- CSS3
+
+### Tools
+
+- Vite
+- Git
+- GitHub
+- GitHub Actions
+- GitHub Pages
+
+### API
+
+- OpenWeather API
+
+---
+
+## 📂 Project Structure
+
+```text
+weather-app/
+│
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+│
+├── public/
+│
+├── src/
+│   ├── components/
+│   │   ├── SearchBar.jsx
+│   │   ├── WeatherCard.jsx
+│   │   └── WeatherDetails.jsx
+│   │
+│   ├── services/
+│   │   └── weatherApi.js
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
