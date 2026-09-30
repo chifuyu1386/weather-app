@@ -27,7 +27,10 @@ function WeatherCard({ weather }) {
         </div>
 
         <div className="weather-icon">
-          ☀️
+          <img 
+          src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+          alt={weather.description}
+          />
         </div>
 
       </div>

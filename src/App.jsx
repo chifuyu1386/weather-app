@@ -6,16 +6,22 @@ import WeatherCard from "./components/WeatherCard";
 
 function App() {
   const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   async function handleSearch(cityName) {
     try {
+      setLoading(true);
+      setError("");
+
       const data = await getWeatherByCity(cityName);
 
       setWeather(data)
-      
-    } catch (err) {
-      console.error(err)
 
+    } catch (err) {
+      console.error(err.message)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -33,8 +39,14 @@ function App() {
 
         <SearchBar onSearch={handleSearch} />
 
-        <WeatherCard weather={weather} />
+        {loading && <p>Loading...</p>}
 
+        {error && <p>{error}</p>}
+
+        {!loading && !error && (
+          <WeatherCard weather={weather} />
+        )}
+        
       </div>
     </main>
   );
