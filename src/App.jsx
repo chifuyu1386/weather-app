@@ -13,13 +13,14 @@ function App() {
     try {
       setLoading(true);
       setError("");
+      setWeather(null);
 
       const data = await getWeatherByCity(cityName);
 
       setWeather(data)
 
     } catch (err) {
-      console.error(err.message)
+      setError(err.message)
     } finally {
       setLoading(false)
     }
@@ -39,13 +40,25 @@ function App() {
 
         <SearchBar onSearch={handleSearch} />
 
-        {loading && <p>Loading...</p>}
+          {loading && (
+            <div className="status-card">
+              <div className="loader"></div>
+              <p>Loading weather...</p>
+            </div>
+          )}
 
-        {error && <p>{error}</p>}
+          {error && !loading && (
+            <div className="status-card error">
+              <div className="error-icon">⚠️</div>
+              <h3>Something went wrong</h3>
+              <p>{error}</p>
+              <span>Try searching for another city.</span>
+            </div>
+          )}
 
-        {!loading && !error && (
-          <WeatherCard weather={weather} />
-        )}
+          {!loading && !error && (
+            <WeatherCard weather={weather} />
+          )}
         
       </div>
     </main>
